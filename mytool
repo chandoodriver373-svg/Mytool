@@ -58,7 +58,11 @@ case "$1" in
     echo "Model: $(getprop ro.product.model)"
     echo "Android: $(getprop ro.build.version.release)"
     echo "CPU: $(uname -m)"
-    ;;
+     ;;
+   clearnotes)
+  > "$HOME/mytool_notes.txt"
+  echo "All notes deleted."
+   ;;
 
 clearnotes)
     > "$HOME/mytool_notes.txt"
