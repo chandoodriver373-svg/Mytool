@@ -1,4 +1,3 @@
-
 #!/data/data/com.termux/files/usr/bin/bash
 
 case "$1" in
@@ -10,7 +9,12 @@ case "$1" in
     echo "  joke"
     echo "  quote"
     echo "  pass"
-    echo "  notes"
+    echo "  notes add TEXT"
+    echo "  notes list"
+    echo "  calc EXPRESSION"
+    echo "  date"
+    echo "  uuid"
+    echo "  sysinfo"
     ;;
 
   joke)
@@ -29,15 +33,30 @@ case "$1" in
 
   notes)
     if [ "$2" = "add" ]; then
-      echo "$3" >> "$HOME/mytool_notes.txt"
+      shift 2
+      echo "$*" >> "$HOME/mytool_notes.txt"
       echo "Note saved."
     elif [ "$2" = "list" ]; then
-      cat "$HOME/mytool_notes.txt"
-    else
-      echo "Use:"
-      echo "  mytool notes add TEXT"
-      echo "  mytool notes list"
+      cat "$HOME/mytool_notes.txt" 2>/dev/null || echo "No notes yet."
     fi
+    ;;
+
+  calc)
+    echo "$2" | bc
+    ;;
+
+  date)
+    date
+    ;;
+
+  uuid)
+    cat /proc/sys/kernel/random/uuid
+    ;;
+
+  sysinfo)
+    echo "Model: $(getprop ro.product.model)"
+    echo "Android: $(getprop ro.build.version.release)"
+    echo "CPU: $(uname -m)"
     ;;
 
   *)
