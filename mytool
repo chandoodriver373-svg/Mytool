@@ -1,3 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-echo "Hello $1 from GitHub CLI tool!"
+echo "Welcome $1"
+echo "This is Chandoo's Tool"
