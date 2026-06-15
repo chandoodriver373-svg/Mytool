@@ -1,4 +1,31 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-echo "Welcome $1"
-echo "This is Chandoo's Tool"
+case "$1" in
+  help)
+    echo "=== MyTool ==="
+    echo "Commands:"
+    echo "  help   - Show help"
+    echo "  joke   - Show a joke"
+    echo "  quote  - Show a quote"
+    echo "  pass   - Generate password"
+    ;;
+
+  joke)
+    echo "Programmer joke:"
+    echo "It works on my machine 😎"
+    ;;
+
+  quote)
+    echo "Keep learning one step at a time."
+    ;;
+
+  pass)
+    tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 12
+    echo
+    ;;
+
+  *)
+    echo "Unknown command."
+    echo "Try: mytool help"
+    ;;
+esac
