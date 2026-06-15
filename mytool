@@ -28,4 +28,16 @@ case "$1" in
     echo "Unknown command."
     echo "Try: mytool help"
     ;;
+notes)
+    if [ "$2" = "add" ]; then
+      echo "$3" >> $HOME/mytool_notes.txt
+      echo "Note saved."
+    elif [ "$2" = "list" ]; then
+      cat $HOME/mytool_notes.txt
+    else
+      echo "Use:"
+      echo "  mytool notes add TEXT"
+      echo "  mytool notes list"
+    fi
+    ;;
 esac
