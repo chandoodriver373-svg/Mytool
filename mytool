@@ -23,11 +23,6 @@ case "$1" in
     tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 12
     echo
     ;;
-
-  *)
-    echo "Unknown command."
-    echo "Try: mytool help"
-    ;;
 notes)
     if [ "$2" = "add" ]; then
       echo "$3" >> $HOME/mytool_notes.txt
@@ -40,4 +35,9 @@ notes)
       echo "  mytool notes list"
     fi
     ;;
+  *)
+    echo "Unknown command."
+    echo "Try: mytool help"
+    ;;
+
 esac
