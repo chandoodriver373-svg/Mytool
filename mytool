@@ -15,7 +15,8 @@ case "$1" in
     echo "  date"
     echo "  uuid"
     echo "  sysinfo"
-    ;;
+    echo "  clearnotes"
+     ;;
 
   joke)
     echo "Programmer joke:"
