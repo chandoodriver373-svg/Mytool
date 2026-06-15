@@ -1,13 +1,16 @@
+
 #!/data/data/com.termux/files/usr/bin/bash
 
 case "$1" in
+
   help)
     echo "=== MyTool ==="
     echo "Commands:"
-    echo "  help   - Show help"
-    echo "  joke   - Show a joke"
-    echo "  quote  - Show a quote"
-    echo "  pass   - Generate password"
+    echo "  help"
+    echo "  joke"
+    echo "  quote"
+    echo "  pass"
+    echo "  notes"
     ;;
 
   joke)
@@ -23,18 +26,20 @@ case "$1" in
     tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 12
     echo
     ;;
-notes)
+
+  notes)
     if [ "$2" = "add" ]; then
-      echo "$3" >> $HOME/mytool_notes.txt
+      echo "$3" >> "$HOME/mytool_notes.txt"
       echo "Note saved."
     elif [ "$2" = "list" ]; then
-      cat $HOME/mytool_notes.txt
+      cat "$HOME/mytool_notes.txt"
     else
       echo "Use:"
       echo "  mytool notes add TEXT"
       echo "  mytool notes list"
     fi
     ;;
+
   *)
     echo "Unknown command."
     echo "Try: mytool help"
