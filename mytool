@@ -59,7 +59,12 @@ case "$1" in
     echo "CPU: $(uname -m)"
     ;;
 
-  *)
+clearnotes)
+    > "$HOME/mytool_notes.txt"
+    echo "All notes deleted."
+    ;;
+
+*)
     echo "Unknown command."
     echo "Try: mytool help"
     ;;
